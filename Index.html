@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Picker</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #f4f4f4;
+    }
+
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 300px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .preview {
+        width: 120px;
+        height: 120px;
+        background: #ff0000;
+        margin: 20px auto;
+        border-radius: 12px;
+        border: 2px solid #ddd;
+    }
+
+    input[type="color"] {
+        width: 100px;
+        height: 50px;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .color-code {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #555;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Color Picker</h2>
+
+    <div class="preview" id="preview"></div>
+
+    <input type="color" id="colorPicker" value="#ff0000">
+
+    <div class="color-code" id="colorCode">
+        #FF0000
+    </div>
+</div>
+
+<script>
+    const colorPicker = document.getElementById("colorPicker");
+    const preview = document.getElementById("preview");
+    const colorCode = document.getElementById("colorCode");
+
+    colorPicker.addEventListener("input", function () {
+        const color = this.value;
+
+        preview.style.backgroundColor = color;
+        colorCode.textContent = color.toUpperCase();
+    });
+</script>
+
+</body>
+</html>
